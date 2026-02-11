@@ -1,0 +1,50 @@
+artifact_path: mlflow-artifacts:/1/models/m-f508eb6c54b64de5bfe9f9bfa3443413/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.9.0
+model_id: m-f508eb6c54b64de5bfe9f9bfa3443413
+model_size_bytes: 7702
+model_uuid: m-f508eb6c54b64de5bfe9f9bfa3443413
+prompts: null
+run_id: de42a6dde96a47b4951f1d74451d4d46
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "age", "required": true}, {"type": "long", "name":
+    "gender", "required": true}, {"type": "long", "name": "race", "required": true},
+    {"type": "long", "name": "fever", "required": true}, {"type": "long", "name":
+    "headache", "required": true}, {"type": "long", "name": "pallor", "required":
+    true}, {"type": "long", "name": "hyperemia", "required": true}, {"type": "long",
+    "name": "blurred_vision", "required": true}, {"type": "long", "name": "nausea",
+    "required": true}, {"type": "long", "name": "vomiting", "required": true}, {"type":
+    "long", "name": "diarrhea", "required": true}, {"type": "long", "name": "paresthesia",
+    "required": true}, {"type": "double", "name": "dysesthesia", "required": true},
+    {"type": "long", "name": "arthralgia", "required": true}, {"type": "long", "name":
+    "edema", "required": true}, {"type": "long", "name": "myalgia", "required": true},
+    {"type": "long", "name": "low_back_pain", "required": true}, {"type": "long",
+    "name": "pruritus", "required": true}, {"type": "long", "name": "rash", "required":
+    true}, {"type": "long", "name": "lesions", "required": true}, {"type": "long",
+    "name": "alopecia", "required": true}, {"type": "long", "name": "memory_impairment",
+    "required": true}, {"type": "long", "name": "libido_change", "required": true},
+    {"type": "long", "name": "fatigue", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-02-11 18:35:08.002653'
