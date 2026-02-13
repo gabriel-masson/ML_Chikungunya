@@ -169,32 +169,46 @@ for model in models_pain:
     pain_models.append(model)
 
 # %%
-# Experimento 1 - Avaliação dos modelos com os atributos da PAHO
-print("PAHO MODELS EVALUATION")
-mlflow.set_tracking_uri("http://127.0.0.1:5000/")
-mlflow.set_experiment(experiment_id=1)
+
+
+def evaluate_models_mlflow(models, experiment_id, X_test, y_test):
+
+    mlflow.set_experiment(experiment_id=experiment_id)
+    for model in models:
+        model_name = model.__class__.__name__
+
+        with mlflow.start_run(run_name=model_name):
+            mlflow.sklearn.autolog()
+            mlflow.xgboost.autolog()
+            metrics = utils.avaliation_model(model, X_test, y_test)
+
+            mlflow.log_metrics(metrics)
+            if hasattr(model, "get_params"):
+                mlflow.log_params(model.get_params())
+
+            input_example = X_test.iloc[:5]
+            y_pred = model.predict(X_test)
+            signature = mlflow.models.infer_signature(X_test, y_pred)
+            mlflow.sklearn.log_model(
+                model,
+                name="model",
+                signature=signature,
+                input_example=input_example,
+            )
+
 
 # %%
-for model in paho_models:
-    model_name = model.__class__.__name__
+mlflow.set_tracking_uri("http://127.0.0.1:5000/")
 
-    with mlflow.start_run(run_name=model_name):
-        mlflow.sklearn.autolog()
-        mlflow.xgboost.autolog()
-        metrics = utils.avaliation_model(model, X_test_paho, y_test_paho)
+# %%
+print("PAHO MODELS EVALUATION")
+evaluate_models_mlflow(models_paho, experiment_id=1,
+                       X_test=X_test_paho, y_test=y_test_paho)
 
-        mlflow.log_metrics(metrics)
-        if hasattr(model, "get_params"):
-            mlflow.log_params(model.get_params())
-
-        input_example = X_test_paho.iloc[:5]
-        y_pred = model.predict(X_test_paho)
-        signature = mlflow.models.infer_signature(X_test_paho, y_pred)
-        mlflow.sklearn.log_model(
-            model,
-            name="model",
-            signature=signature,
-            input_example=input_example,
-        )
+# %%
+print("PAIN MODELS EVALUATION")
+evaluate_models_mlflow(models_pain, experiment_id=2,
+                       X_test=X_test_pain, y_test=y_test_pain)
+# %%
 
 # %%

@@ -1,0 +1,60 @@
+artifact_path: mlflow-artifacts:/2/models/m-5965ed40843241e9b5d97924f14054d8/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.2
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.9.0
+model_id: m-5965ed40843241e9b5d97924f14054d8
+model_size_bytes: 482866
+model_uuid: m-5965ed40843241e9b5d97924f14054d8
+prompts: null
+run_id: 4215deda7e7a4dbabf53720d15db2f53
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "long", "name": "age", "required": true}, {"type": "long", "name":
+    "gender", "required": true}, {"type": "long", "name": "race", "required": true},
+    {"type": "long", "name": "fever", "required": true}, {"type": "long", "name":
+    "headache", "required": true}, {"type": "long", "name": "pallor", "required":
+    true}, {"type": "long", "name": "hyperemia", "required": true}, {"type": "long",
+    "name": "blurred_vision", "required": true}, {"type": "long", "name": "nausea",
+    "required": true}, {"type": "long", "name": "vomiting", "required": true}, {"type":
+    "long", "name": "diarrhea", "required": true}, {"type": "long", "name": "paresthesia",
+    "required": true}, {"type": "double", "name": "dysesthesia", "required": true},
+    {"type": "long", "name": "arthralgia", "required": true}, {"type": "long", "name":
+    "edema", "required": true}, {"type": "long", "name": "myalgia", "required": true},
+    {"type": "long", "name": "low_back_pain", "required": true}, {"type": "long",
+    "name": "pruritus", "required": true}, {"type": "long", "name": "rash", "required":
+    true}, {"type": "long", "name": "lesions", "required": true}, {"type": "long",
+    "name": "alopecia", "required": true}, {"type": "long", "name": "memory_impairment",
+    "required": true}, {"type": "long", "name": "libido_change", "required": true},
+    {"type": "long", "name": "fatigue", "required": true}, {"type": "long", "name":
+    "pain_intensity_left_shoulder", "required": true}, {"type": "long", "name": "pain_intensity_right_shoulder",
+    "required": true}, {"type": "long", "name": "pain_intensity_left_wrist", "required":
+    true}, {"type": "long", "name": "pain_intensity_right_wrist", "required": true},
+    {"type": "long", "name": "pain_intensity_left_hand_fingers", "required": true},
+    {"type": "long", "name": "intensdor_dedomaod", "required": true}, {"type": "long",
+    "name": "intensdor_joelhoe", "required": true}, {"type": "long", "name": "intensdor_joelhod",
+    "required": true}, {"type": "long", "name": "intensdor_tornozeloe", "required":
+    true}, {"type": "long", "name": "intensdor_tornozelod", "required": true}, {"type":
+    "long", "name": "intensdor_dedopee", "required": true}, {"type": "long", "name":
+    "intensdor_dedoped", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "int64", "shape": [-1]}}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-02-13 14:45:54.567709'
