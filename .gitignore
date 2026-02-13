@@ -3,7 +3,7 @@
 venv/
 ENV/
 env/
-
+data/
 # VSCode
 .vscode/
 *.code-workspace
